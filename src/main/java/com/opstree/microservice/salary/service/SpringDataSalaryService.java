@@ -20,4 +20,7 @@ public class SpringDataSalaryService {
     public List<Employee> getAllEmployeeSalary(){
         return employeeRepository.findAll();
     }
+    public Employee getEmployeeSalary(String id){
+        return employeeRepository.findByIdAsString(id);
+    }
 }

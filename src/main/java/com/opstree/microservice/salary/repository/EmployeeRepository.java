@@ -4,12 +4,11 @@ import com.opstree.microservice.salary.model.Employee;
 
 import java.util.List;
 import java.util.UUID;
-// import org.springframework.data.cassandra.repository.AllowFiltering;
 import org.springframework.data.cassandra.repository.CassandraRepository;
-// import org.springframework.stereotype.Repository;
+import org.springframework.data.cassandra.repository.Query;
 
-// @Repository
 public interface EmployeeRepository extends CassandraRepository<Employee, UUID> {
-//     @AllowFiltering
-//     List<Employee> findAllSalary();
+
+    @Query("SELECT * FROM employee_info WHERE id = ?0")
+    Employee findByIdAsString(String id);
 }

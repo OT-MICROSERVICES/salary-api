@@ -26,7 +26,7 @@ public class SpringDataController {
     }
 
     @GetMapping("/search")
-    public String findSalary(@RequestParam("id") String id) {
-        return "Hello World from " + id;
+    public Employee findSalary(@RequestParam("id") String id) {
+        return springDataSalaryService.getEmployeeSalary(id);
     }
 }
