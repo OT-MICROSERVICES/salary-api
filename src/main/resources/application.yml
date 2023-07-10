@@ -18,3 +18,12 @@ management:
 logging:
   level:
     org.springframework.web: DEBUG
+
+springdoc:
+  swagger-ui:
+    path: /salary-documentation
+    tryItOutEnabled: true
+    filter: true
+  api-docs:
+    path: /salary-api-docs
+  show-actuator: true

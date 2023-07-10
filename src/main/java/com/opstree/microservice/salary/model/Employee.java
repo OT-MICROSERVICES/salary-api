@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 @Data
 @AllArgsConstructor
@@ -16,6 +17,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @Table("employee_info")
 public class Employee {
+
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+
     @Id
     @PrimaryKey
     private String id;
