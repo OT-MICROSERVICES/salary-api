@@ -43,7 +43,7 @@ public class SpringDataController {
 
     @Operation(
       summary = "Retrieve a Salary by Employee Id",
-      description = "Get a salary object by specifying its id. The response is Tutorial object with id, name, salary.",
+      description = "Get a salary object by specifying its id. The response is Employee object with id, name, salary.",
       tags = {})
     @ApiResponses({@ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Employee.class), mediaType = "application/json") })})
     @GetMapping("/search")
