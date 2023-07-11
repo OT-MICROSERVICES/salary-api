@@ -23,4 +23,9 @@ public class SpringDataSalaryService {
     public Employee getEmployeeSalary(String id){
         return employeeRepository.findByIdAsString(id);
     }
+
+    public Employee saveSalary(Employee employee) {
+        employeeRepository.save(employee);
+        return employee;
+    }
 }

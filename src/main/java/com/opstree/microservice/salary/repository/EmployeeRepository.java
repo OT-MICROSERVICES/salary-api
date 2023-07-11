@@ -9,6 +9,6 @@ import org.springframework.data.cassandra.repository.Query;
 
 public interface EmployeeRepository extends CassandraRepository<Employee, UUID> {
 
-    @Query("SELECT * FROM employee_info WHERE id = ?0")
+    @Query("SELECT * FROM employee_salary WHERE id = ?0")
     Employee findByIdAsString(String id);
 }
