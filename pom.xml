@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.opstree.microservice</groupId>
 	<artifactId>salary</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0-RELEASE</version>
 	<name>salary</name>
 	<description>Java microservice to handle all salary related data</description>
 	<properties>
