@@ -1,5 +1,7 @@
 package com.opstree.microservice.salary.model;
 
+import java.time.LocalDate;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
@@ -15,18 +17,43 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table("employee_info")
+@Table("employee_salary")
 public class Employee {
-
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
 
     @Id
     @PrimaryKey
+    @Column("id")
     private String id;
 
     @Column("name")
     private String name;
 
-    @Column("annual_package")
+    @Column("salary")
     private Float salary;
+
+    @Column("process_date")
+    private String processDate;
+
+    @Column("status")
+    private String status;
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Float getSalary() {
+        return salary;
+    }
+
+    public String getProcessDate() {
+        return processDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
 }
