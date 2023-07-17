@@ -6,6 +6,11 @@ spring:
     username: scylladb
     password: password
     local-datacenter: datacenter1
+  data:
+    redis:
+      host: 172.17.0.4
+      port: 6379
+      password: password
 
 management:
   endpoints:
