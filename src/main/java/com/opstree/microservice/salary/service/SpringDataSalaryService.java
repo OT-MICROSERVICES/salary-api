@@ -6,6 +6,7 @@ import com.opstree.microservice.salary.repository.EmployeeRepository;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
@@ -20,6 +21,8 @@ public class SpringDataSalaryService {
     public List<Employee> getAllEmployeeSalary(){
         return employeeRepository.findAll();
     }
+
+    @Cacheable("salary-search-id")
     public Employee getEmployeeSalary(String id){
         return employeeRepository.findByIdAsString(id);
     }

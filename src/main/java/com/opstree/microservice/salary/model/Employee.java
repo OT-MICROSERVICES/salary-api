@@ -1,6 +1,7 @@
 package com.opstree.microservice.salary.model;
 
 import java.time.LocalDate;
+import java.io.Serializable;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.cassandra.core.mapping.Column;
@@ -18,7 +19,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @NoArgsConstructor
 @Builder
 @Table("employee_salary")
-public class Employee {
+public class Employee implements Serializable {
 
     @Id
     @PrimaryKey
