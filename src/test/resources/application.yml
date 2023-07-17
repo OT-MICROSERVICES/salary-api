@@ -6,4 +6,38 @@ spring:
     username: scylladb
     password: password
     local-datacenter: datacenter1
+  data:
+    redis:
+      host: 172.17.0.4
+      port: 6379
+      password: password
 
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: [ "health","prometheus", "metrics" ]
+  health:
+    cassandra:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+
+springdoc:
+  swagger-ui:
+    path: /salary-documentation
+    tryItOutEnabled: true
+    filter: true
+  api-docs:
+    path: /salary-api-docs
+  show-actuator: true
