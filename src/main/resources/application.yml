@@ -8,12 +8,21 @@ spring:
     local-datacenter: datacenter1
 
 management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: [ "health","prometheus", "metrics" ]
   health:
     cassandra:
       enabled: true
   endpoint:
     health:
       show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
 
 logging:
   level:
