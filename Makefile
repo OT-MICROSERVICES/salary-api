@@ -10,6 +10,10 @@ build:
 fmt:
 	mvn checkstyle:checkstyle
 
+# Run jacoco test cases for coverage
+test:
+	mvn test
+
 docker-build:
 	docker build -t ${IMAGE_REGISTRY}/${IMAGE_NAME}:${APP_VERSION} -f Dockerfile .
 

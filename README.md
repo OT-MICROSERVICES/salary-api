@@ -27,3 +27,46 @@ Maven will be used as package manager to download specific version of dependenci
 ## Architecture
 
 ![](./static/salary.png)
+
+## Application
+
+For building the Salary API application, we can use `make` commands with our **[Makefile](./Makefile)**. But first, we need to install the dependencies which can be simply done using the `make` command.
+
+```shell
+make build
+```
+
+For building the docker image artifact of the attendance api, we can invoke another make command.
+
+```shell
+make docker-build
+make docker-push
+```
+
+Also, Salary API contains different test cases and code quality related integrations. To check the code quality, we can use `checkstyle` plugin with maven. Also, for code coverage and unit testing, we are using Jacoco, and Junit respectively.
+
+```shell
+make fmt
+make test
+```
+
+```shell
+mvn checkstyle:checkstyle
+# For unit testing and code coverage
+mvn test
+```
+
+The test cases are present in **[src/test/java/com/opstree/microservice/salary](./src/test/java/com/opstree/microservice/salary)**. For dev testing, the Swagger UI can be used for sample payload generation and requests. The swagger page will be accessible on http://localhost:8080/salary-documentation.
+
+Before running the application, we have to make sure our mandatory database (ScyllaDB and Redis) is up and running. Configuration properties will be configured inside **[application.yml](./src/main/resources/application.yml)** file. Also, once the property file is defined and configured properly, we need to run migrations to create database, schema etc. The connection details for migration is available in **[migration.json](./migration.json)**.
+
+```shell
+make run-migrations
+```
+
+Once the schema, table and database is configured, we can start our application using java runtime.
+
+```shell
+java -jar target/salary-0.1.0-RELEASE.jar
+```
+
