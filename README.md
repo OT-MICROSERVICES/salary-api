@@ -70,3 +70,16 @@ Once the schema, table and database is configured, we can start our application 
 java -jar target/salary-0.1.0-RELEASE.jar
 ```
 
+## Endpoint Information
+
+| **Endpoint**                   | **Method** | **Description**                                                                               |
+|--------------------------------|------------|-----------------------------------------------------------------------------------------------|
+| `/api/v1/salary/create/record` | POST       | Data creation endpoint which accepts certain JSON body to add salary information in database  |
+| `/api/v1/salary/search`        | GET        | Endpoint for searching data information using the params in the URL                           |
+| `/api/v1/salary/search/all`    | GET        | Endpoint for searching all information across the system                                      |
+| `/actuator/prometheus`         | GET        | Application healthcheck and performance metrics are available on this endpoint                |
+| `/actuator/health`             | GET        | Endpoint for providing shallow healthcheck information about application health and readiness |
+
+## Contact Information
+
+[Opstree Opensource](mailto:opensource@opstree.com)
