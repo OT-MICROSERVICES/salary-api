@@ -89,5 +89,6 @@ java -jar target/salary-0.1.0-RELEASE.jar
 
 #Cred scanning
 AWS_ACCESS_KEY_ID=ASIAIOSFODNN7EXAMPLE AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+password=root
 
 
