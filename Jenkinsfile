@@ -1,5 +1,7 @@
 @Library("my-shared-library") _
 // testing  webhook-001
+
+// testing  salary CI webhook-001
 def salaryCI = new org.avengers.template.salary.salaryCI()
 
 node {
