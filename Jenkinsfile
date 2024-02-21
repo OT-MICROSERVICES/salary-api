@@ -2,7 +2,7 @@
 // testing  webhook-001
 
 // testing  salary CI webhook-001
-def salaryCI = new org.avengers.template.salary.salaryCI()
+def salaryCI = new org.avengers.template.salaryCI.salaryCI()
 
 node {
     
