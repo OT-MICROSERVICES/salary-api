@@ -1,3 +1,5 @@
+test2
+test
 <p align="center">
   <img src="./static/salary-api-logo.svg" height="300" width="300">
 </p>
@@ -83,3 +85,10 @@ java -jar target/salary-0.1.0-RELEASE.jar
 ## Contact Information
 
 [Opstree Opensource](mailto:opensource@opstree.com)
+
+
+#Cred scanning
+AWS_ACCESS_KEY_ID=ASIAIOSFODNN7EXAMPLE AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+password=root
+
+
