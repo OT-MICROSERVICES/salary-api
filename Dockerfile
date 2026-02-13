@@ -1,22 +1,36 @@
-FROM maven:3.6.3-openjdk-17 as builder
+# ---------- Builder Stage ----------
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
 
 WORKDIR /workspace
 
 COPY pom.xml .
-COPY src/ src/
+RUN mvn -B -q dependency:go-offline
 
-RUN mvn clean package -DskipTests
+COPY src ./src
+RUN mvn -B -q clean package -DskipTests
 
-FROM alpine:3.18.0
+# ---------- Runtime Stage ----------
+FROM alpine:3.18
 
 LABEL authors="Opstree Solution" \
       contact="opensource@opstree.com" \
       version="v0.1.0" \
       service="salary-api"
 
-RUN apk update && \
-    apk add openjdk17
+# Install only JRE (smaller & safer)
+RUN apk add --no-cache openjdk17-jre
+
+# Create non-root user
+RUN addgroup -S app && adduser -S app -G app
+
+WORKDIR /app
 
 COPY --from=builder /workspace/target/salary-0.1.0-RELEASE.jar /app/salary.jar
+
+RUN chown -R app:app /app
+
+USER app
+
 EXPOSE 8080
-ENTRYPOINT ["/usr/bin/java", "-jar", "/app/salary.jar"]
+
+ENTRYPOINT ["java", "-jar", "/app/salary.jar"]
