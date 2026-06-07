@@ -1,0 +1,12 @@
+[Unit]
+Description=Backend App
+After=network.target
+
+[Service]
+ExecStart=java -jar /home/buildpiper/backend-app/target/backend-app-1.0.0.jar
+WorkingDirectory=/home/buildpiper/backend-app
+Restart=always
+User=buildpiper
+
+[Install]
+WantedBy=multi-user.target
