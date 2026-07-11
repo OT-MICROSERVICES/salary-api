@@ -3,10 +3,11 @@ Description=Backend App
 After=network.target
 
 [Service]
-ExecStart=java -jar /home/buildpiper/salary-api/backend-app/target/backend-app-1.0.0.jar
+User=buildpiper
+Group=buildpiper
 WorkingDirectory=/home/buildpiper/salary-api/backend-app
+ExecStart=/usr/bin/java -jar /home/buildpiper/salary-api/backend-app/target/backend-app-1.0.0.jar
 Restart=always
-User=ubuntu
 
 [Install]
 WantedBy=multi-user.target
