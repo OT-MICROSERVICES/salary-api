@@ -3,7 +3,7 @@ set -eu
 
 cd backend-app
 
-echo "==> Building frontend-app"
-mvn clean package -DskipTests
+echo "==> Building backend-app"
+mvn clean package -DskipTests -s settings.xml
 
 echo "==> Done"
