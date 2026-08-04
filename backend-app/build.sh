@@ -4,6 +4,6 @@ set -eu
 cd backend-app
 
 echo "==> Building backend-app"
-mvn clean package -DskipTests -s settings.xml
+mvn clean package -DskipTests 
 
 echo "==> Done"
