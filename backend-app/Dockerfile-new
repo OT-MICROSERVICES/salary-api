@@ -1,0 +1,8 @@
+FROM alpine:3.20
+ 
+# Change these at run time with -e HOST=... -e PORT=... -e URL=...
+ENV HOST=your-domain \
+    PORT=80 \
+    URL=http://your-domain/
+ 
+CMD nslookup google.com
