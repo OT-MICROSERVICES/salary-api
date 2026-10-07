@@ -1,6 +1,6 @@
 FROM alpine:3.20
 ARG NEXUS_USER
 ARG NEXUS_PASS
-RUN echo "test run 5"
+RUN echo "test run 7"
 RUN echo "===== TCP" && (nc -zv -w 5 192.168.10.141 8081 || echo "TCP FAILED")
-RUN echo "===== DOWNLOAD" && (wget -qO- -T 10 --user="$NEXUS_USER" --password="$NEXUS_PASS" http://dev.bp:8081/repository/test/hello.txt || echo "DOWNLOAD FAILED" && exit 1)
+RUN echo "===== DOWNLOAD" && (wget -qO- "http://$NEXUS_USER:$NEXUS_PASS@dev.bp:8081/repository/test/hello.txt" || { echo "DOWNLOAD FAILED"; exit 1; })
