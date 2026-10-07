@@ -5,4 +5,4 @@ ENV HOST=your-domain \
     PORT=80 \
     URL=http://your-domain/
  
-CMD nslookup google.com
+CMD curl google.com
