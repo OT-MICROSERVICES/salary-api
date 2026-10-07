@@ -1,8 +1,15 @@
 FROM alpine:3.20
- 
-# Change these at run time with -e HOST=... -e PORT=... -e URL=...
-ENV HOST=your-domain \
-    PORT=80 \
-    URL=http://your-domain/
- 
-CMD curl google.com
+
+ARG NEXUS_HOST=http://dev.com
+ARG NEXUS_PORT=8081
+
+# Change this text on every run, otherwise Docker reuses the cached result
+# and prints nothing. Your log shows "No Cache: Disabled", so caching is on.
+RUN echo "test run 1"
+
+RUN echo "===== DNS google.com" && (nslookup google.com || echo "DNS FAILED")
+RUN echo "===== HTTP google.com" && (wget -S -O /dev/null -T 10 http://google.com 2>&1 | head -5 || echo "HTTP FAILED")
+
+RUN echo "===== DNS $NEXUS_HOST" && (nslookup $NEXUS_HOST || echo "DNS FAILED")
+RUN echo "===== TCP $NEXUS_HOST:$NEXUS_PORT" && (nc -zv -w 5 $NEXUS_HOST $NEXUS_PORT || echo "TCP FAILED")
+RUN echo "===== HTTP Nexus" && (wget -S -O /dev/null -T 10 http://$NEXUS_HOST:$NEXUS_PORT/ 2>&1 | head -5 || echo "HTTP FAILED")
